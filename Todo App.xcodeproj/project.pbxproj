@@ -11,6 +11,7 @@
 		1A2F79F82A76238700459BA1 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A2F79F72A76238700459BA1 /* ContentView.swift */; };
 		1A2F79FA2A76238900459BA1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1A2F79F92A76238900459BA1 /* Assets.xcassets */; };
 		1A2F79FE2A76238900459BA1 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1A2F79FD2A76238900459BA1 /* Preview Assets.xcassets */; };
+		1A2F7A052A76243D00459BA1 /* Todo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A2F7A042A76243D00459BA1 /* Todo.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -20,6 +21,7 @@
 		1A2F79F92A76238900459BA1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1A2F79FB2A76238900459BA1 /* Todo_App.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Todo_App.entitlements; sourceTree = "<group>"; };
 		1A2F79FD2A76238900459BA1 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		1A2F7A042A76243D00459BA1 /* Todo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Todo.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,6 +56,7 @@
 			children = (
 				1A2F79F52A76238700459BA1 /* Todo_AppApp.swift */,
 				1A2F79F72A76238700459BA1 /* ContentView.swift */,
+				1A2F7A042A76243D00459BA1 /* Todo.swift */,
 				1A2F79F92A76238900459BA1 /* Assets.xcassets */,
 				1A2F79FB2A76238900459BA1 /* Todo_App.entitlements */,
 				1A2F79FC2A76238900459BA1 /* Preview Content */,
@@ -140,6 +143,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1A2F79F82A76238700459BA1 /* ContentView.swift in Sources */,
+				1A2F7A052A76243D00459BA1 /* Todo.swift in Sources */,
 				1A2F79F62A76238700459BA1 /* Todo_AppApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

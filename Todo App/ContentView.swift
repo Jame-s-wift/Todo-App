@@ -8,14 +8,18 @@
 import SwiftUI
 
 struct ContentView: View {
+    
+    @State private var todos = [
+    Todo(title: "Buy 20kg Nutella"),
+    Todo(title: "Eat 20kg Nutella")
+    ]
+    
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundColor(.accentColor)
-            Text("Hello, world!")
+        List(todos) { todo in
+            
+            Text(todo.title)
+            
         }
-        .padding()
     }
 }
 
