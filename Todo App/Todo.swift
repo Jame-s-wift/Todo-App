@@ -11,5 +11,6 @@ struct Todo: Identifiable {
     
     var id = UUID() // Universally Unique Identifiable
     var title: String
+    var subtittle = ""
     var isCompleted = false
 }

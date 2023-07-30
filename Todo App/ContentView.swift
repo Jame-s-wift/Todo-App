@@ -11,7 +11,8 @@ struct ContentView: View {
     
     @State private var todos = [
         Todo(title: "Buy 20kg Nutella", isCompleted: true),
-        Todo(title: "Eat 20kg Nutella")
+        Todo(title: "Eat 20kg Nutella", subtittle: "NOM NOM NOM"),
+        Todo(title: "Regret life decisions"),
     ]
     
     var body: some View {
@@ -23,8 +24,15 @@ struct ContentView: View {
                             todo.isCompleted.toggle()
                         }
                     
-                    Text(todo.title)
-                        .strikethrough(todo.isCompleted)
+                    VStack(alignment: .leading){
+                        Text(todo.title)
+                            .strikethrough(todo.isCompleted)
+                        if !todo.subtittle.isEmpty {
+                            Text(todo.subtittle)
+                                .font(.footnote)
+                                .foregroundColor(.gray)
+                        }
+                    }
                 }
             }
             .navigationTitle("Todos")
