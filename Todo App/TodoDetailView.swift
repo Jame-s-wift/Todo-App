@@ -17,6 +17,7 @@ struct TodoDetailView: View {
                 TextField("tittle", text: $todo.title)
                 TextField("subtittle", text: $todo.subtittle)
                 Toggle("Completed", isOn:$todo.isCompleted)
+                DatePicker("Deadline", selection: $todo.deadline)
             }
         }
         .navigationTitle("Todo Detail")

@@ -13,5 +13,6 @@ struct Todo: Identifiable {
     var title: String
     var subtittle = ""
     var isCompleted = false
+    var deadline = Date()
     
 }

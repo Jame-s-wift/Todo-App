@@ -17,29 +17,36 @@ struct ContentView: View {
     
     var body: some View {
         NavigationStack {
-            List($todos, id: \.id) { $todo in
+            List($todos, id: \.id, editActions: .all) { $todo in
                 NavigationLink{
                     TodoDetailView(todo: $todo)
                 } label: {
-                    HStack{
-                        Image(systemName: todo.isCompleted ? "checkmark.circle.fill" : "circle")
-                            .onTapGesture {
-                                todo.isCompleted.toggle()
-                            }
-                        
-                        VStack(alignment: .leading){
-                            Text(todo.title)
-                                .strikethrough(todo.isCompleted)
-                            if !todo.subtittle.isEmpty {
-                                Text(todo.subtittle)
-                                    .font(.footnote)
-                                    .foregroundStyle(.gray)
+                    ZStack{
+                        HStack{
+                            Image(systemName: todo.isCompleted ? "checkmark.circle.fill" : "circle")
+                                .onTapGesture {
+                                    todo.isCompleted.toggle()
+                                }
+                            
+                            VStack(alignment: .leading){
+                                Text(todo.title)
+                                    .strikethrough(todo.isCompleted)
+                                if !todo.subtittle.isEmpty {
+                                    Text(todo.subtittle)
+                                        .font(.footnote)
+                                        .foregroundStyle(.gray)
+                                }
                             }
                         }
                     }
                 }
             }
             .navigationTitle("Todos")
+            .toolbar{
+                ToolbarItem(placement: .navigationBarLeading) {
+                    EditButton()
+                }
+            }
         }
     }
 }
