@@ -17,20 +17,24 @@ struct ContentView: View {
     
     var body: some View {
         NavigationStack {
-            List($todos) { $todo in
-                HStack{
-                    Image(systemName: todo.isCompleted ? "checkmark.circle.fill" : "circle")
-                        .onTapGesture {
-                            todo.isCompleted.toggle()
-                        }
-                    
-                    VStack(alignment: .leading){
-                        Text(todo.title)
-                            .strikethrough(todo.isCompleted)
-                        if !todo.subtittle.isEmpty {
-                            Text(todo.subtittle)
-                                .font(.footnote)
-                                .foregroundColor(.gray)
+            List($todos, id: \.id) { $todo in
+                NavigationLink{
+                    TodoDetailView(todo: todo)
+                } label: {
+                    HStack{
+                        Image(systemName: todo.isCompleted ? "checkmark.circle.fill" : "circle")
+                            .onTapGesture {
+                                todo.isCompleted.toggle()
+                            }
+                        
+                        VStack(alignment: .leading){
+                            Text(todo.title)
+                                .strikethrough(todo.isCompleted)
+                            if !todo.subtittle.isEmpty {
+                                Text(todo.subtittle)
+                                    .font(.footnote)
+                                    .foregroundStyle(.gray)
+                            }
                         }
                     }
                 }
