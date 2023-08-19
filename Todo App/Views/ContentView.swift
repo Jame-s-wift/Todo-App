@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct ContentView: View {
+    @State private var isPresented = false
     
     @State private var todos = [
         Todo(title: "Buy 20kg Nutella", isCompleted: true),
@@ -21,24 +22,7 @@ struct ContentView: View {
                 NavigationLink{
                     TodoDetailView(todo: $todo)
                 } label: {
-                    ZStack{
-                        HStack{
-                            Image(systemName: todo.isCompleted ? "checkmark.circle.fill" : "circle")
-                                .onTapGesture {
-                                    todo.isCompleted.toggle()
-                                }
-                            
-                            VStack(alignment: .leading){
-                                Text(todo.title)
-                                    .strikethrough(todo.isCompleted)
-                                if !todo.subtittle.isEmpty {
-                                    Text(todo.subtittle)
-                                        .font(.footnote)
-                                        .foregroundStyle(.gray)
-                                }
-                            }
-                        }
-                    }
+                    TodoRowView(todo: $todo)
                 }
             }
             .navigationTitle("Todos")
@@ -46,6 +30,16 @@ struct ContentView: View {
                 ToolbarItem(placement: .navigationBarLeading) {
                     EditButton()
                 }
+                ToolbarItem(placement: .navigationBarTrailing) {
+                    Button{
+                        isPresented = true
+                    }label: {
+                        Image(systemName: "plus")
+                    }
+                }
+            }
+            .sheet(isPresented: $isPresented) {
+                NewTodoView(sourceArray: $todos, isPresented: $isPresented)
             }
         }
     }
